@@ -14,7 +14,335 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_messages: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_from_user: boolean | null
+          message: string
+          message_type: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_from_user?: boolean | null
+          message: string
+          message_type?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_from_user?: boolean | null
+          message?: string
+          message_type?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      custom_shakes: {
+        Row: {
+          additives: string[] | null
+          base_protein: string
+          created_at: string | null
+          flavors: string[] | null
+          id: string
+          name: string
+          price: number | null
+          user_id: string | null
+        }
+        Insert: {
+          additives?: string[] | null
+          base_protein: string
+          created_at?: string | null
+          flavors?: string[] | null
+          id?: string
+          name: string
+          price?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          additives?: string[] | null
+          base_protein?: string
+          created_at?: string | null
+          flavors?: string[] | null
+          id?: string
+          name?: string
+          price?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      food_tracking: {
+        Row: {
+          calories: number | null
+          created_at: string | null
+          date: string | null
+          food_item: string
+          id: string
+          meal_type: string | null
+          protein_grams: number | null
+          user_id: string | null
+        }
+        Insert: {
+          calories?: number | null
+          created_at?: string | null
+          date?: string | null
+          food_item: string
+          id?: string
+          meal_type?: string | null
+          protein_grams?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          calories?: number | null
+          created_at?: string | null
+          date?: string | null
+          food_item?: string
+          id?: string
+          meal_type?: string | null
+          protein_grams?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      gym_partners: {
+        Row: {
+          age: number | null
+          available: boolean | null
+          bio: string | null
+          created_at: string | null
+          fitness_level: string | null
+          id: string
+          image_url: string | null
+          interests: string[] | null
+          location: string | null
+          name: string
+        }
+        Insert: {
+          age?: number | null
+          available?: boolean | null
+          bio?: string | null
+          created_at?: string | null
+          fitness_level?: string | null
+          id?: string
+          image_url?: string | null
+          interests?: string[] | null
+          location?: string | null
+          name: string
+        }
+        Update: {
+          age?: number | null
+          available?: boolean | null
+          bio?: string | null
+          created_at?: string | null
+          fitness_level?: string | null
+          id?: string
+          image_url?: string | null
+          interests?: string[] | null
+          location?: string | null
+          name?: string
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          created_at: string | null
+          id: string
+          order_type: string | null
+          product_id: string | null
+          quantity: number | null
+          status: string | null
+          stripe_session_id: string | null
+          total_amount: number | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          order_type?: string | null
+          product_id?: string | null
+          quantity?: number | null
+          status?: string | null
+          stripe_session_id?: string | null
+          total_amount?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          order_type?: string | null
+          product_id?: string | null
+          quantity?: number | null
+          status?: string | null
+          stripe_session_id?: string | null
+          total_amount?: number | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "protein_products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          joined_at: string | null
+          membership_type: string | null
+          phone: string | null
+          signup_code: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          joined_at?: string | null
+          membership_type?: string | null
+          phone?: string | null
+          signup_code: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          joined_at?: string | null
+          membership_type?: string | null
+          phone?: string | null
+          signup_code?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      protein_products: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          flavors: string[] | null
+          id: string
+          image_url: string | null
+          in_stock: boolean | null
+          name: string
+          price_daily: number | null
+          price_monthly: number | null
+          protein_per_serving: number | null
+          type: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          flavors?: string[] | null
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean | null
+          name: string
+          price_daily?: number | null
+          price_monthly?: number | null
+          protein_per_serving?: number | null
+          type: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          flavors?: string[] | null
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean | null
+          name?: string
+          price_daily?: number | null
+          price_monthly?: number | null
+          protein_per_serving?: number | null
+          type?: string
+        }
+        Relationships: []
+      }
+      trainers: {
+        Row: {
+          available: boolean | null
+          bio: string | null
+          created_at: string | null
+          experience_years: number | null
+          id: string
+          image_url: string | null
+          name: string
+          price_per_session: number | null
+          rating: number | null
+          specialty: string
+        }
+        Insert: {
+          available?: boolean | null
+          bio?: string | null
+          created_at?: string | null
+          experience_years?: number | null
+          id?: string
+          image_url?: string | null
+          name: string
+          price_per_session?: number | null
+          rating?: number | null
+          specialty: string
+        }
+        Update: {
+          available?: boolean | null
+          bio?: string | null
+          created_at?: string | null
+          experience_years?: number | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          price_per_session?: number | null
+          rating?: number | null
+          specialty?: string
+        }
+        Relationships: []
+      }
+      workouts: {
+        Row: {
+          calories_burned: number | null
+          created_at: string | null
+          date: string | null
+          duration_minutes: number | null
+          exercise_name: string
+          id: string
+          notes: string | null
+          user_id: string | null
+        }
+        Insert: {
+          calories_burned?: number | null
+          created_at?: string | null
+          date?: string | null
+          duration_minutes?: number | null
+          exercise_name: string
+          id?: string
+          notes?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          calories_burned?: number | null
+          created_at?: string | null
+          date?: string | null
+          duration_minutes?: number | null
+          exercise_name?: string
+          id?: string
+          notes?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
