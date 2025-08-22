@@ -39,12 +39,12 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Fitness App Custom Colors */
-    --purple-primary: 270 85% 60%;
-    --purple-secondary: 285 85% 65%;
-    --purple-dark: 260 20% 8%;
-    --neon-purple: 285 100% 75%;
-    --electric-blue: 220 100% 70%;
-    --hot-pink: 320 85% 65%;
+    --purple-primary: 15 85% 55%;
+    --purple-secondary: 120 80% 50%;
+    --purple-dark: 220 25% 8%;
+    --neon-purple: 15 100% 60%;
+    --electric-blue: 195 100% 55%;
+    --hot-pink: 45 95% 55%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--purple-primary)), hsl(var(--purple-secondary)));
